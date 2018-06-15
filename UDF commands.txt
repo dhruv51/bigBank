@@ -1,0 +1,17 @@
+
+
+I have uploaded one dataset first try this solution for that dataset 
+book2.txt
+
+dependency text file is also there it is for cloudera 1.7 (kindly take that dependency only)
+
+
+a = load '/home/training/Desktop/book2.txt' USING PigStorage(',') as(ord:int,nm:chararray,idf:int,city:chararray);
+
+REGISTER '/home/training/Desktop/upper.jar';   
+
+DEFINE upper upper1(); 
+
+Upper_case = FOREACH a GENERATE org.inventateq.nav.upper(nm);  
+
+DUMP Upper_case; 
